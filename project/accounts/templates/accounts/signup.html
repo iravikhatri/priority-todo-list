@@ -1,0 +1,37 @@
+{% extends 'todolist/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="row mt-5 mb-5">
+    <div class="col-md-6 offset-md-3">
+        <div class="container-todolist p-4">
+            <form method="POST" class="pl-2 pr-2">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Join Today</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ form.username|as_crispy_field }}
+                        </div>
+                        <div class="col-md-12">
+                            {{ form.email|as_crispy_field }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.password1|as_crispy_field }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.password2|as_crispy_field }}
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit" name="button">Sign UP</button>
+                </div>
+                <div class="border-top pt-3 pb-1 small text-muted">
+                    Already have an account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

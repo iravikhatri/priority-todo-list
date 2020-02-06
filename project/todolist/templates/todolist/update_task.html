@@ -1,0 +1,16 @@
+{% extends 'todolist/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="mt-5 mb-5 container-todolist">
+    <div class="todolist-add p-4">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.title|as_crispy_field }}
+            {{ form.priority|as_crispy_field }}
+            {{ form.task|as_crispy_field }}
+            <a class="btn btn-success float-right" href="{% url 'detail_task' task_id %}">Back</a>
+            <button class="btn btn-primary mt-2" type="submit" name="button">Update</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

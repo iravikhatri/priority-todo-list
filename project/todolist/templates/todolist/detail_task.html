@@ -1,0 +1,24 @@
+{% extends 'todolist/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="mt-5 mb-5 container-todolist">
+    <div class="todolist pt-1">
+        <div class="p-3">
+            <p class="mb-0">{{ task.task }}</p>
+        </div>
+        <div class="p-3">
+            <span class="title-{{ task.priority }} p-2 pl-4 pr-4 mr-4">
+                {{ task.title }}
+            </span>
+            <span>
+                Posted By {{ task.user.username }} at {{ task.created_date|date:"d F, Y" }}
+            </span>
+        </div>
+    </div>
+    <div class="p-3">
+        <a class="btn btn-success float-right" href="{% url 'todolist' %}">Back</a>
+        <a class="btn btn-primary" href="{% url 'update_task' task.id %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'delete_task' task.id %}">Delete</a>
+    </div>
+</div>
+{% endblock %}

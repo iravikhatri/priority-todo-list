@@ -1,0 +1,40 @@
+{% extends 'todolist/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="mt-5 mb-5 container-todolist">
+    <div class="todolist-add pt-1">
+        <div class="p-3 pl-4"">
+            <a href="{% url 'create_task' %}" class="btn btn-primary">Add Task</a>
+        </div>
+    </div>
+
+    {% for task in tasks %}
+        <div class="todolist check-{{ task.status }} pt-1">
+            <div class="p-3 pl-4">
+                <a href="{% url 'detail_task' task.id %}">
+                    <p class="mb-0">{{ task.task }}</p>
+                </a>
+            </div>
+            <div class="p-3">
+                <span class="title-{{ task.priority }} p-2 pl-4 pr-4 mr-4">
+                    {{ task.title }}
+                </span>
+                <span>
+                    Posted By {{ task.user.username }} at {{ task.created_date|date:"d F, Y" }}
+                </span>
+            </div>
+            <div class="pl-2">
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="task_id" value="{{ task.id }}">
+                    {% if task.status %}
+                        <input class="m-4" type="checkbox" name="status" value="None" onclick="this.form.submit();" checked>
+                    {% else %}
+                        <input class="m-4" type="checkbox" name="status" value="True" onclick="this.form.submit();" >
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

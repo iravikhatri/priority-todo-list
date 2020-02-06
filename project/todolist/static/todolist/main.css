@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600&display=swap');
+/* font-family: 'Oswald', sans-serif; */
+
+body{
+    font-family: 'Oswald', sans-serif;
+    background-color: #f5f5f5;
+}
+
+header ul a{
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+
+.title-low{
+    background-color: #7b17c2;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.title-medium{
+    background-color: #17b061;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.title-high{
+    background-color: #3f61d1;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.title-urgent{
+    background-color: #ed4060;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.check-True{
+    background-color: #f7f7f7;
+}
+
+.container-todolist{
+    color: rgba(0, 0, 0, 0.6);
+    background-color: #fff;
+    box-shadow: 0px 0px 3px 1px #dadae3;
+}
+
+.todolist{
+    display: grid;
+    grid-template-columns: 11fr 8fr 1fr;
+    border-bottom: 1px solid #dadae3;
+}
+
+.todolist label{
+    display: none;
+}
+
+.todolist-add{
+    border-bottom: 1px solid #dadae3;
+}
+
+.form-text{
+    display: none;
+}
